@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import './styles/App.css';
+
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+
+// nav
+import Navbar from './components/Navbar';
+// pages
+import Home from './pages/Home';
+import Categories from '././pages/Categories';
+import SinglePlate from '././pages/SinglePlate';
+import SearchPage from '././pages/SearchPage';
+import RandomPage from './pages/RandomPage';
+import Country from '././pages/Country';
+import Category from '././pages/Category';
 
 function App() {
+  const [number, setNumber] = useState(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route exact path='/' element={<Home />} />
+          <Route path='/categories' element={<Categories />} />
+          <Route path='/single-plate/:id' element={<SinglePlate />} />
+          <Route path='/search/:id' element={<SearchPage />} />
+          <Route path='/random-menu' element={<RandomPage />} />
+          <Route path='/category/:id' element={<Category />} />
+          <Route path='/country/:id' element={<Country />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
