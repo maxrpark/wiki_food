@@ -39,7 +39,7 @@ function Category() {
     return (
       <main className='section-center'>
         <Form />
-        <h1 className=''>Result for : {search}</h1>
+        <h1 className='result-title'>Result for : {search}</h1>
         <div className='card-container'>
           <section>
             {plate.map((card) => {

@@ -117,7 +117,7 @@ h5 {
   margin: 0 auto;
 }
 .form-container {
-  margin: 2rem auto 0 auto;
+  /* margin: 2rem auto 0 auto; */
   width: 100%;
   max-width: 600px;
   padding: 1rem;
@@ -431,7 +431,8 @@ h5 {
 .selected-country a {
   background-color: var(--primary-color-3);
 }
-.country-title {
-  margin: 2rem 0;
+.country-title,
+.result-title {
+  margin: 1rem 0;
   text-align: center;
 }

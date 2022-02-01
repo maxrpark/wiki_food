@@ -189,7 +189,7 @@ function SinglePlate() {
         {/* category */}
         <section className='recommended-section-container'>
           <div className='section-title'>
-            <h2>Recommend {category} food</h2>
+            <h2>{category} menus</h2>
             <Link to={`/category/${category}`}>See all</Link>
           </div>
           <div className='related-section'>
@@ -205,7 +205,7 @@ function SinglePlate() {
         {/* area */}
         <section className='recommended-section-container'>
           <div className='section-title'>
-            <h2>Recommend {area} food</h2>
+            <h2>{area}'s food</h2>
             <Link to={`/country/${area}`}>See all</Link>
           </div>
           <div className='related-section'>
