@@ -206,7 +206,7 @@ function SinglePlate() {
         {/* area */}
         <section className='recommended-section-container'>
           <div className='section-title'>
-            <h2>{area}'s food</h2>
+            <h2>{area} food</h2>
             <Link to={`/country/${area}`}>See all</Link>
           </div>
           <div className='related-section'>
