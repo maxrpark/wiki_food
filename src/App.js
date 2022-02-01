@@ -1,7 +1,6 @@
 import './styles/App.css';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 
 // nav
 import Navbar from './components/Navbar';
@@ -15,8 +14,6 @@ import Country from '././pages/Country';
 import Category from '././pages/Category';
 
 function App() {
-  const [number, setNumber] = useState(null);
-
   return (
     <div className='App'>
       <Router>

@@ -19,7 +19,7 @@ function Category() {
       const response = await axios(url);
       const data = response.data.categories;
       const singleCategory = data.filter(
-        (category) => category.strCategory == mainCategory
+        (category) => category.strCategory === mainCategory
       );
       const {
         idCategory: id,
