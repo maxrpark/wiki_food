@@ -100,6 +100,7 @@ function RandomPage() {
         link,
         category,
       };
+      document.title = `WikiFood || ${plateDetails.name}`;
       setPlate(plateDetails);
       setLoading(false);
     }

@@ -24,6 +24,7 @@ function Categories() {
         return { id, name, img, param };
       });
       setCategories(listOfCategories);
+      document.title = `WikiFood || Categories`;
     }
   };
   useEffect(() => {

@@ -131,6 +131,7 @@ function SinglePlate() {
             strMealThumb: img,
             idMeal: param,
           } = food;
+          document.title = `WikiFood || ${plate.name}`;
           return { id, img, name, param };
         });
         cardsInRandomOrder(listOfPlates);

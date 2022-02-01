@@ -51,6 +51,7 @@ function Home() {
     }
   };
   useEffect(() => {
+    document.title = `WikiFood`;
     categories.forEach((category, index) => {
       getData(categories[index], states[index]);
     });

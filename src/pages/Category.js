@@ -29,6 +29,7 @@ function Category() {
       } = singleCategory[0];
       const categoryDetails = { id, name, img, description };
       setCategoryInfo(categoryDetails);
+      document.title = `WikiFood || ${category}`;
     } catch (error) {
       console.log(error);
     }

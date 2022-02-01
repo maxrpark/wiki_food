@@ -31,6 +31,7 @@ function Category() {
     }
   };
   useEffect(() => {
+    document.title = `WikiFoo || ${search}`;
     getData();
   }, [, search]);
 
