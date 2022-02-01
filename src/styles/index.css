@@ -120,6 +120,7 @@ h5 {
   margin: 2rem auto 0 auto;
   width: 100%;
   max-width: 600px;
+  padding: 1rem;
 }
 .form-container h3 {
   text-align: center;
@@ -316,8 +317,12 @@ h5 {
   margin: 1rem 0;
 }
 
-.recommended-section-container {
+.section-center section.recommended-section-container {
   width: 100%;
+  justify-content: center;
+}
+.recommended-section-container .section-title {
+  padding: 0;
 }
 .single-food-details img {
   width: 100%;
