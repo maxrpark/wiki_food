@@ -33,7 +33,7 @@ function Categories() {
   if (categories.length) {
     return (
       <div className='section-center'>
-        <h1 className=''>Categories</h1>
+        <h1 className='categories-title'>Categories</h1>
         <div className='card-container'>
           <section>
             {categories.map((card) => {

@@ -117,7 +117,7 @@ h5 {
   margin: 0 auto;
 }
 .form-container {
-  margin: 2rem auto;
+  margin: 2rem auto 0 auto;
   width: 100%;
   max-width: 600px;
 }
@@ -130,7 +130,7 @@ h5 {
   text-align: center;
   margin-top: 0.5rem;
   transition: all 0.3s linear;
-  height: 30px;
+  height: 2px;
 }
 .form {
   width: 100%;
@@ -266,8 +266,8 @@ h5 {
 }
 
 /* category */
-.category-title h1 {
-  color: red !important;
+.categories-title {
+  margin: 2rem auto;
 }
 
 /* categories */
