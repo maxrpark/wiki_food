@@ -1,71 +1,28 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
+<h2>Wiki Food </h1>
+  
+![alt text](https://img.shields.io/badge/My%20first%20website-2.0.4-green)  ![alt text](https://img.shields.io/badge/Made%20by-Max-brightgreen) ![alt text](https://img.shields.io/badge/Made%20With-React.js-blue)
+</div>
 
-## Available Scripts
+# Wiki Food
 
-In the project directory, you can run:
+Wiki Food is my first React.js app, I built it in a couple of days with my basic knowledge of React, even though there are a lot of things to improve I am very happy with the result.
 
-### `npm start`
+I had to use all the things I know from react, the project fetches data, has a form, uses Router. It has different pages and components.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+I just use one CSS file, because I did not want to bother about that. I reuse a lot of the classes so the file is actually pretty short for all these pages.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Next time I will try to use, styles components.
 
-### `npm test`
+For this website I use [mealdb](https://www.themealdb.com/api.php).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# What is it about
 
-### `npm run build`
+Wiki Food is an application where you can search for different menus from all over the world.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+You can take a look at the different categories, get food by country, search for a specific food or even get a random menu.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# wiki_food
+If you navigate so specific menu, you get some suggestions based on the current menu you are looking for.
+You can take a look at the side by clicking the next link
+[Wiki Food](https://wiki-food.netlify.app/).
