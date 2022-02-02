@@ -17,12 +17,14 @@ Next time I will try to use, styles components.
 
 For this website I use [mealdb](https://www.themealdb.com/api.php).
 
-# What is it about
+## What is it about
 
 Wiki Food is an application where you can search for different menus from all over the world.
 
 You can take a look at the different categories, get food by country, search for a specific food or even get a random menu.
 
 If you navigate so specific menu, you get some suggestions based on the current menu you are looking for.
+
+## Visit the website
 You can take a look at the side by clicking the next link
 [Wiki Food](https://wiki-food.netlify.app/).
