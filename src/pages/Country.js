@@ -47,9 +47,9 @@ function Country() {
     }
   };
   useEffect(() => {
-    getData();
-    getCountryList();
-  }, [, country_name]);
+    getData(); // eslint-disable-next-line react-hooks/exhaustive-deps
+    getCountryList(); // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [country_name]);
 
   if (countriesList.length) {
     // const { id, name, img, description } = categoryInfo;
@@ -64,7 +64,7 @@ function Country() {
                 <div
                   key={area}
                   className={`${
-                    area == country_name
+                    area === country_name
                       ? 'single-food-tags selected-country'
                       : 'single-food-tags'
                   }`}

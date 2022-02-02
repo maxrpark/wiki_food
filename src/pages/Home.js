@@ -57,7 +57,7 @@ function Home() {
     document.title = `WikiFood`;
     categories.forEach((category, index) => {
       getData(categories[index], states[index]);
-    });
+    }); // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   if (isloading) {
     return (

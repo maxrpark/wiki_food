@@ -36,8 +36,8 @@ function Category() {
   };
   useEffect(() => {
     document.title = `WikiFoo || ${search}`;
-    getData();
-  }, [, search]);
+    getData(); // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [search]);
 
   if (!loading) {
     // const { id, name, img, description } = searchResult;

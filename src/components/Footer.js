@@ -5,7 +5,11 @@ export default function Footer() {
     <footer>
       <p>
         Made with React, by{' '}
-        <a target='_blank' href='https://twitter.com/MaxCodeJourney'>
+        <a
+          target='_blank'
+          rel='noreferrer'
+          href='https://twitter.com/MaxCodeJourney'
+        >
           Maxi Ruti,
         </a>{' '}
         {new Date().getFullYear()}
@@ -14,6 +18,7 @@ export default function Footer() {
         Visit my other projects{' '}
         <a
           target='_blank'
+          rel='noreferrer'
           href='https://my-portfolio-blog-website.netlify.app/'
         >
           My Portfolio Website

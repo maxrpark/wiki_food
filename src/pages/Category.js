@@ -56,12 +56,12 @@ function Category() {
     }
   };
   useEffect(() => {
-    getData();
-    getCategoryInfo();
+    getData(); // eslint-disable-next-line react-hooks/exhaustive-deps
+    getCategoryInfo(); // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (plate.length) {
-    const { id, name, img, description } = categoryInfo;
+    const { name, img, description } = categoryInfo;
     return (
       <main className='section-center'>
         <header className='category-header'>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -20,14 +20,14 @@ function RandomPage() {
 
   // TODO fix rerender and useref
 
-  const rerender = () => {
+  const rerender = useCallback(() => {
     const btn = document.querySelector('.random-menu');
     if (btn != null) {
       btn.addEventListener('click', () => {
         getData();
       });
     }
-  };
+  }, []);
 
   // random order
   const cardsInRandomOrder = (item) => {
@@ -98,7 +98,6 @@ function RandomPage() {
         name,
         img,
         ingredients,
-        name,
         area,
         instructions,
         link,
@@ -112,7 +111,7 @@ function RandomPage() {
 
   // related category
   const getRelatedCategory = async () => {
-    if (plate !== null && loading == true) {
+    if (plate !== null && loading === true) {
       const response = await axios(`${category_url}${plate.category}`);
       const data = await response.data.meals;
       if (data != null) {
@@ -134,7 +133,7 @@ function RandomPage() {
 
   // related category
   const getRecommendByCountry = async () => {
-    if (plate !== null && loading == true) {
+    if (plate !== null && loading === true) {
       const response = await axios(`${area_url}${plate.area}`);
       const data = await response.data.meals;
       if (data != null) {
@@ -154,20 +153,19 @@ function RandomPage() {
   };
 
   useEffect(() => {
-    getData();
-    rerender();
+    getData(); // eslint-disable-next-line react-hooks/exhaustive-deps
+    rerender(); // eslint-disable-next-line
     return () => {
-      setState({}); // This worked for me
+      setState({});
     };
-  }, []);
+  }, [state, rerender]);
   useEffect(() => {
-    getRecommendByCountry();
-    getRelatedCategory();
+    getRecommendByCountry(); // eslint-disable-next-line react-hooks/exhaustive-deps
+    getRelatedCategory(); // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [plate]);
 
   if (!loading) {
-    const { id, name, img, ingredients, area, instructions, link, category } =
-      plate;
+    const { name, img, ingredients, area, instructions, category } = plate;
     return (
       <main className='section-center food-page'>
         {/* single food */}

@@ -88,7 +88,6 @@ function SinglePlate() {
         name,
         img,
         ingredients,
-        name,
         area,
         instructions,
         link,
@@ -100,7 +99,7 @@ function SinglePlate() {
 
   // related category
   const getRelatedCategory = async () => {
-    if (plate && loading == true) {
+    if (plate && loading === true) {
       const response = await axios(`${category_url}${plate.category}`);
       const data = await response.data.meals;
       if (data != null) {
@@ -122,7 +121,7 @@ function SinglePlate() {
 
   // related category
   const getRecommendByCountry = async () => {
-    if (plate && loading == true) {
+    if (plate && loading === true) {
       const response = await axios(`${area_url}${plate.area}`);
       const data = await response.data.meals;
 
@@ -145,16 +144,16 @@ function SinglePlate() {
   };
 
   useEffect(() => {
-    getData();
-  }, [, id]);
+    getData(); // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
   useEffect(() => {
-    getRecommendByCountry();
-    getRelatedCategory();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    getRecommendByCountry(); // eslint-disable-next-line react-hooks/exhaustive-deps
+    getRelatedCategory(); // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [plate]);
 
   if (!loading) {
-    const { id, name, img, ingredients, area, instructions, link, category } =
-      plate;
+    const { name, img, ingredients, area, instructions, category } = plate;
     return (
       <main className='section-center food-page'>
         {/* single food */}

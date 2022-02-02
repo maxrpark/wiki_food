@@ -39,7 +39,7 @@ function Form() {
     <div className='form-container'>
       <h3>Search a menu</h3>
       <form
-        autocomplete='off'
+        autoComplete='off'
         onSubmit={(e) => {
           handleClick(e, value);
         }}
