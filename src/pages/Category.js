@@ -3,7 +3,11 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+
+// components
 import Card from './../components/Card';
+import Loader from './../components/Loader';
+
 const base_url = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=';
 const url = 'https://www.themealdb.com/api/json/v1/1/categories.php';
 
@@ -84,7 +88,7 @@ function Category() {
     return (
       <main className='section-center'>
         <div className='loading'>
-          <div className='spinner'></div>
+          <Loader />
         </div>
       </main>
     );

@@ -9,12 +9,14 @@ function Navbar() {
     <nav className='nav'>
       <div className='navbar'>
         <div className='logo'>
-          <Link className='logo' to='/'>
+          <Link className='logo nav-link' to='/'>
             Wiki Food
           </Link>
         </div>
         <div className='nav-links'>
-          <Link to='/categories'>Categories</Link>
+          <Link className='nav-link' to='/categories'>
+            Categories
+          </Link>
           <Link ref={btn} className='random-menu btn' to={`random-menu/`}>
             Random Menu
           </Link>

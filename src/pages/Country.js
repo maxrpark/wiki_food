@@ -3,7 +3,10 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+// components
 import Card from './../components/Card';
+import Loader from './../components/Loader';
+
 const base_url = 'https://www.themealdb.com/api/json/v1/1/filter.php?a=';
 const url_list = 'https://www.themealdb.com/api/json/v1/1/list.php?a=list';
 
@@ -48,7 +51,7 @@ function Country() {
     getCountryList();
   }, [, country_name]);
 
-  if (!loading) {
+  if (countriesList.length) {
     // const { id, name, img, description } = categoryInfo;
     return (
       <main className='section-center section-center-countries'>
@@ -72,25 +75,31 @@ function Country() {
             })}
           </div>
         </header>
-        <div className='card-container'>
-          <h2 className='country-title'>{country_name} Food</h2>
-          <section>
-            {plate.map((card) => {
-              return (
-                <Link key={card.id} to={`/single-plate/${card.param}`}>
-                  <Card {...card} />
-                </Link>
-              );
-            })}
-          </section>
-        </div>
+        {loading ? (
+          <div className='loading-country'>
+            <Loader />
+          </div>
+        ) : (
+          <div className='card-container'>
+            <h2 className='country-title'>{country_name} Food</h2>
+            <section>
+              {plate.map((card) => {
+                return (
+                  <Link key={card.id} to={`/single-plate/${card.param}`}>
+                    <Card {...card} />
+                  </Link>
+                );
+              })}
+            </section>
+          </div>
+        )}
       </main>
     );
   } else {
     return (
       <main className='section-center'>
         <div className='loading'>
-          <div className='spinner'></div>
+          <Loader />
         </div>
       </main>
     );

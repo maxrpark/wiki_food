@@ -1,5 +1,3 @@
-import './styles/App.css';
-
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 // nav
@@ -12,6 +10,7 @@ import SearchPage from '././pages/SearchPage';
 import RandomPage from './pages/RandomPage';
 import Country from '././pages/Country';
 import Category from '././pages/Category';
+import Footer from '././components/Footer';
 
 function App() {
   return (
@@ -27,6 +26,7 @@ function App() {
           <Route path='/category/:id' element={<Category />} />
           <Route path='/country/:id' element={<Country />} />
         </Routes>
+        <Footer />
       </Router>
     </div>
   );

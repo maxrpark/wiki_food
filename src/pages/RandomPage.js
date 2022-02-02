@@ -2,7 +2,11 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+
+// components
 import Card from '../components/Card';
+import Loader from '../components/Loader';
+
 const base_url = 'https://www.themealdb.com/api/json/v1/1/random.php';
 const category_url = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=';
 const area_url = 'https://www.themealdb.com/api/json/v1/1/filter.php?a=';
@@ -171,8 +175,12 @@ function RandomPage() {
           <div className='section-title'>
             <h1>{name}</h1>
             <div className='single-food-tags'>
-              <Link to={`/category/${category}`}>{category}</Link>
-              <Link to={`/country/${area}`}>{area}</Link>
+              <Link className='btn' to={`/category/${category}`}>
+                {category}
+              </Link>
+              <Link className='btn' to={`/country/${area}`}>
+                {area}
+              </Link>
             </div>
           </div>
           <div className='single-food-details'>
@@ -202,8 +210,10 @@ function RandomPage() {
         {/* category */}
         <section className='recommended-section-container'>
           <div className='section-title'>
-            <h2>Recommend {category} food</h2>
-            <Link to={`/category/${category}`}>See all</Link>
+            <h2>{category} menus</h2>
+            <Link className='btn' to={`/category/${category}`}>
+              See all
+            </Link>
           </div>
           <div className='related-section'>
             {categories.map((card) => {
@@ -218,8 +228,10 @@ function RandomPage() {
         {/* area */}
         <section className='recommended-section-container'>
           <div className='section-title'>
-            <h2>Recommend {area} food</h2>
-            <Link to={`/country/${area}`}>See all</Link>
+            <h2>{area} food</h2>
+            <Link className='btn' to={`/country/${area}`}>
+              See all
+            </Link>
           </div>
           <div className='related-section'>
             {country.map((card) => {
@@ -237,7 +249,7 @@ function RandomPage() {
     return (
       <main className='section-center'>
         <div className='loading'>
-          <div className='spinner'></div>
+          <Loader />
         </div>
       </main>
     );

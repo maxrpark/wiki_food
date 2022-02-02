@@ -1,9 +1,12 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+// components
 import Card from './../components/Card';
 import Form from './../components/Form';
-import axios from 'axios';
+import Loader from './../components/Loader';
+
 const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=`;
 
 function Home() {
@@ -60,7 +63,7 @@ function Home() {
     return (
       <main className='section-center'>
         <div className='loading'>
-          <div className='spinner'></div>
+          <Loader />
         </div>
       </main>
     );
@@ -71,7 +74,9 @@ function Home() {
         {/* 'Breakfast' */}
         <div className='section-title'>
           <h2>{categories[0]}</h2>
-          <Link to={`/category/${categories[0]}`}>See all</Link>
+          <Link className='btn' to={`/category/${categories[0]}`}>
+            See all
+          </Link>
         </div>
         <div className='card-container'>
           <section>
@@ -87,7 +92,9 @@ function Home() {
           {/* 'Starter',  */}
           <div className='section-title'>
             <h2>{categories[1]}</h2>
-            <Link to={`/category/${categories[1]}`}>See all</Link>
+            <Link className='btn' to={`/category/${categories[1]}`}>
+              See all
+            </Link>
           </div>
           <section>
             {categoryTwo.map((card) => {
@@ -102,7 +109,9 @@ function Home() {
           {/* 'Beef'  */}
           <div className='section-title'>
             <h2>{categories[2]}</h2>
-            <Link to={`/category/${categories[2]}`}>See all</Link>
+            <Link className='btn' to={`/category/${categories[2]}`}>
+              See all
+            </Link>
           </div>
           <section>
             {categoryThree.map((card) => {
@@ -116,7 +125,9 @@ function Home() {
           {/* 'Pasta' */}
           <div className='section-title'>
             <h2>{categories[3]}</h2>
-            <Link to={`/category/${categories[3]}`}>See all</Link>
+            <Link className='btn' to={`/category/${categories[3]}`}>
+              See all
+            </Link>
           </div>
           <section>
             {categoryFour.map((card) => {
@@ -130,7 +141,9 @@ function Home() {
           {/* 'Seafood', */}
           <div className='section-title'>
             <h2>{categories[4]}</h2>
-            <Link to={`/category/${categories[4]}`}>See all</Link>
+            <Link className='btn' to={`/category/${categories[4]}`}>
+              See all
+            </Link>
           </div>
           <section>
             {categoryFive.map((card) => {
@@ -143,7 +156,9 @@ function Home() {
           </section>
           <div className='section-title'>
             <h2>{categories[5]}</h2>
-            <Link to={`/category/${categories[5]}`}>See all</Link>
+            <Link className='btn' to={`/category/${categories[5]}`}>
+              See all
+            </Link>
           </div>
           <section>
             {/* 'vegan',*/}

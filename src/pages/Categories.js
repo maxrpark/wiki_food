@@ -1,8 +1,12 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Card from './../components/Card';
 import axios from 'axios';
+
+// components
+import Card from './../components/Card';
+import Loader from './../components/Loader';
+
 const url = 'https://www.themealdb.com/api/json/v1/1/categories.php';
 
 function Categories() {
@@ -52,7 +56,7 @@ function Categories() {
     return (
       <main className='section-center'>
         <div className='loading'>
-          <div className='spinner'></div>
+          <Loader />
         </div>
       </main>
     );
