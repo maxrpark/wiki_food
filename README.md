@@ -26,5 +26,6 @@ You can take a look at the different categories, get food by country, search for
 If you navigate so specific menu, you get some suggestions based on the current menu you are looking for.
 
 ## Visit the website
-You can take a look at the side by clicking the next link
+
+You can take a look at the website by clicking the next link
 [Wiki Food](https://wiki-food.netlify.app/).
