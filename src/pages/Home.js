@@ -1,179 +1,109 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 // components
-import Card from './../components/Card';
-import Form from './../components/Form';
-import Loader from './../components/Loader';
+import { CardeSection, Form, Loader } from "../components";
 
 const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=`;
 
+const categories = [
+    "Breakfast",
+    "Starter",
+    "Beef",
+    "Pasta",
+    "Seafood",
+    "Vegetarian",
+];
+
 function Home() {
-  const [isloading, setIsLoading] = useState(true);
-  const [categoryOne, setCategoryOne] = useState([]);
-  const [categoryTwo, setCategoryTwo] = useState([]);
-  const [categoryThree, setCategoryThree] = useState([]);
-  const [categoryFour, setCategoryFour] = useState([]);
-  const [categoryFive, setCategoryFive] = useState([]);
-  const [categorySix, setCategorySix] = useState([]);
+    const [isloading, setIsLoading] = useState(true);
+    const [categoryOne, setCategoryOne] = useState([]);
+    const [categoryTwo, setCategoryTwo] = useState([]);
+    const [categoryThree, setCategoryThree] = useState([]);
+    const [categoryFour, setCategoryFour] = useState([]);
+    const [categoryFive, setCategoryFive] = useState([]);
+    const [categorySix, setCategorySix] = useState([]);
 
-  const categories = [
-    'Breakfast',
-    'Starter',
-    'Beef',
-    'Pasta',
-    'Seafood',
-    'Vegetarian',
-  ];
-  const states = [
-    setCategoryOne,
-    setCategoryTwo,
-    setCategoryThree,
-    setCategoryFour,
-    setCategoryFive,
-    setCategorySix,
-  ];
+    const states = [
+        setCategoryOne,
+        setCategoryTwo,
+        setCategoryThree,
+        setCategoryFour,
+        setCategoryFive,
+        setCategorySix,
+    ];
 
-  const getData = async (category, state) => {
-    setIsLoading(true);
-    const response = await axios(`${url}${category}`);
-    const data = await response.data.meals;
-    if (data != null) {
-      const listOfFood = data.map((food) => {
-        const {
-          idMeal: id,
-          strMeal: name,
-          strMealThumb: img,
-          idMeal: param,
-        } = food;
-        return { id, name, img, param };
-      });
-      state(listOfFood.slice(0, 3));
-      setIsLoading(false);
+    const getData = async (category, state) => {
+        setIsLoading(true);
+        const response = await axios(`${url}${category}`);
+        const data = await response.data.meals;
+        if (data != null) {
+            const listOfFood = data.map((food) => {
+                const {
+                    idMeal: id,
+                    strMeal: name,
+                    strMealThumb: img,
+                    idMeal: param,
+                } = food;
+                return { id, name, img, param };
+            });
+            state(listOfFood.slice(0, 3));
+            setIsLoading(false);
+        }
+    };
+    useEffect(() => {
+        document.title = `WikiFood`;
+        categories.forEach((category, index) => {
+            getData(categories[index], states[index]);
+        }); // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+    if (isloading) {
+        return (
+            <main className='section-center'>
+                <div className='loading'>
+                    <Loader />
+                </div>
+            </main>
+        );
+    } else {
+        return (
+            <main className='section-center'>
+                <Form />
+                {/* 'Breakfast' */}
+                <div className='card-container'>
+                    <CardeSection
+                        menus={categoryOne}
+                        category={categories[0]}
+                    />
+                    {/* 'Starter',  */}
+                    <CardeSection
+                        menus={categoryTwo}
+                        category={categories[1]}
+                    />
+                    {/* 'Beef'  */}
+                    <CardeSection
+                        menus={categoryThree}
+                        category={categories[2]}
+                    />
+                    {/* 'Pasta' */}
+
+                    <CardeSection
+                        menus={categoryFour}
+                        category={categories[3]}
+                    />
+                    {/* 'Seafood', */}
+                    <CardeSection
+                        menus={categoryFive}
+                        category={categories[4]}
+                    />
+                    {/* 'vegan',*/}
+                    <CardeSection
+                        menus={categorySix}
+                        category={categories[5]}
+                    />
+                </div>
+            </main>
+        );
     }
-  };
-  useEffect(() => {
-    document.title = `WikiFood`;
-    categories.forEach((category, index) => {
-      getData(categories[index], states[index]);
-    }); // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-  if (isloading) {
-    return (
-      <main className='section-center'>
-        <div className='loading'>
-          <Loader />
-        </div>
-      </main>
-    );
-  } else {
-    return (
-      <main className='section-center'>
-        <Form />
-        {/* 'Breakfast' */}
-        <div className='section-title'>
-          <h2>{categories[0]}</h2>
-          <Link className='btn' to={`/category/${categories[0]}`}>
-            See all
-          </Link>
-        </div>
-        <div className='card-container'>
-          <section>
-            {categoryOne.map((card) => {
-              return (
-                <Link key={card.id} to={`/single-plate/${card.param}`}>
-                  <Card {...card} />
-                </Link>
-              );
-            })}
-          </section>
-
-          {/* 'Starter',  */}
-          <div className='section-title'>
-            <h2>{categories[1]}</h2>
-            <Link className='btn' to={`/category/${categories[1]}`}>
-              See all
-            </Link>
-          </div>
-          <section>
-            {categoryTwo.map((card) => {
-              return (
-                <Link key={card.id} to={`/single-plate/${card.param}`}>
-                  <Card {...card} />
-                </Link>
-              );
-            })}
-          </section>
-
-          {/* 'Beef'  */}
-          <div className='section-title'>
-            <h2>{categories[2]}</h2>
-            <Link className='btn' to={`/category/${categories[2]}`}>
-              See all
-            </Link>
-          </div>
-          <section>
-            {categoryThree.map((card) => {
-              return (
-                <Link key={card.id} to={`/single-plate/${card.param}`}>
-                  <Card {...card} />
-                </Link>
-              );
-            })}
-          </section>
-          {/* 'Pasta' */}
-          <div className='section-title'>
-            <h2>{categories[3]}</h2>
-            <Link className='btn' to={`/category/${categories[3]}`}>
-              See all
-            </Link>
-          </div>
-          <section>
-            {categoryFour.map((card) => {
-              return (
-                <Link key={card.id} to={`/single-plate/${card.param}`}>
-                  <Card {...card} />
-                </Link>
-              );
-            })}
-          </section>
-          {/* 'Seafood', */}
-          <div className='section-title'>
-            <h2>{categories[4]}</h2>
-            <Link className='btn' to={`/category/${categories[4]}`}>
-              See all
-            </Link>
-          </div>
-          <section>
-            {categoryFive.map((card) => {
-              return (
-                <Link key={card.id} to={`/single-plate/${card.param}`}>
-                  <Card {...card} />
-                </Link>
-              );
-            })}
-          </section>
-          <div className='section-title'>
-            <h2>{categories[5]}</h2>
-            <Link className='btn' to={`/category/${categories[5]}`}>
-              See all
-            </Link>
-          </div>
-          <section>
-            {/* 'vegan',*/}
-            {categorySix.map((card) => {
-              return (
-                <Link key={card.id} to={`/single-plate/${card.param}`}>
-                  <Card {...card} />
-                </Link>
-              );
-            })}
-          </section>
-        </div>
-      </main>
-    );
-  }
 }
 
 export default Home;
