@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 // components
 import { CardeSection, Form, Loader } from "../components";
-
 const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=`;
 
 const categories = [
@@ -51,10 +50,10 @@ function Home() {
         }
     };
     useEffect(() => {
-        document.title = `WikiFood`;
         categories.forEach((category, index) => {
             getData(categories[index], states[index]);
         }); // eslint-disable-next-line react-hooks/exhaustive-deps
+        document.title = `WikiFood`;
     }, []);
     if (isloading) {
         return (

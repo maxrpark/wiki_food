@@ -1,12 +1,10 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import { Link } from "react-router-dom";
 import axios from "axios";
 
 // components
 
-import { CardeSection, Loader } from "../components";
+import { CardeSection, Loader, SinglePlateDetails } from "../components";
 
 const base_url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=";
 const category_url = "https://www.themealdb.com/api/json/v1/1/filter.php?c=";
@@ -152,48 +150,11 @@ function SinglePlate() {
     }, [plate]);
 
     if (!loading) {
-        const { name, img, ingredients, area, instructions, category } = plate;
+        const { area, category } = plate;
         return (
             <main className='section-center food-page'>
                 {/* single food */}
-                <section className='single-food'>
-                    <div className='section-title'>
-                        <h1>{name}</h1>
-                        <div className='single-food-tags'>
-                            <Link className='btn' to={`/category/${category}`}>
-                                {category}
-                            </Link>
-                            <Link className='btn' to={`/country/${area}`}>
-                                {area}
-                            </Link>
-                        </div>
-                    </div>
-                    <div className='single-food-details'>
-                        <div className='details-top'>
-                            <img src={img} alt='' />
-                            <div className='ingredients-list'>
-                                <h3>Ingredients</h3>
-                                <div className='ingredients'>
-                                    {ingredients.map((item, index) => {
-                                        return item ? (
-                                            <p
-                                                className='single-ingredient'
-                                                key={index}
-                                            >
-                                                {item}
-                                            </p>
-                                        ) : null;
-                                    })}
-                                </div>
-                            </div>
-                        </div>
-                        <div className='instructions'>
-                            <h2>Instructions</h2>
-                            <p>{instructions}</p>
-                        </div>
-                    </div>
-                </section>
-                {/* single food */}
+                <SinglePlateDetails {...plate} />
 
                 {/* category */}
                 <section className='recommended-section-container'>
